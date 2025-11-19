@@ -32,17 +32,37 @@
     color: #ccc !important;
   }
 
-  /* Remove Bulma's grey backgrounds */
-  .interpolation-panel {
-    background-color: #16203b !important;
-  }
   /* Fix image overflow inside container */
   figure.image img {
-  max-width: 100% !important;
-  height: auto !important;
-  display: block !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* ============================
+        FIX: FEATURE A / B LAYOUT
+     ============================ */
+
+  /* Remove Bulma's internal gap issues */
+  .columns.is-centered {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    gap: 3rem !important; /* spacing between Feature A and Feature B */
+  }
+
+  /* Force both Feature columns to be equal width */
+  .columns.is-centered .column {
+    flex: 1 !important;
+    max-width: 45% !important;
+    text-align: justify !important;
+  }
+
+  /* Make headings centered but paragraphs justified */
+  .columns.is-centered .column h2 {
+    text-align: center !important;
   }
 
   </style>
