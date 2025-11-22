@@ -182,3 +182,19 @@ figcaption {
   margin-left: auto;      /* optional: center the image horizontally */
   margin-right: auto;     /* optional: center the image horizontally */
 }
+
+
+.divider {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #aaa;
+  line-height: 0.1em;
+  margin: 30px 0;
+}
+
+.divider .diamond {
+  background: #16203B; /* 너의 배경색 */
+  padding: 0 10px;
+  color: #ccc; /* 다이아몬드 색 */
+  font-size: 18px;
+}
