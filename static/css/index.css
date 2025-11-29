@@ -165,3 +165,25 @@ figure img:hover { transform: scale(1.3); }
 
 a { color: #80bfff; transition: 0.3s; }
 a:hover { color: #d0e8ff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+
+
+/* ============================================= */
+/* 모바일 줄간격 보정 (띄어쓰기 두 번처럼 보이는 현상 해결) */
+/* ============================================= */
+@media screen and (max-width: 768px) {
+
+  html, body {
+    line-height: 1.35 !important;
+  }
+
+  p, li {
+    line-height: 1.4 !important;
+    margin-bottom: 0.7rem !important; /* Bulma 과한 margin 완화 */
+  }
+
+  /* Times New Roman 모바일 렌더링 폭 문제 해결용 */
+  * {
+    font-family: "Times New Roman", serif;
+    letter-spacing: 0.25px !important;
+  }
+}
