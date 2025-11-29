@@ -1,240 +1,166 @@
-/* --------------------------- */
-/*  GLOBAL (Desktop Default)   */
-/* --------------------------- */
+/* ============================================= */
+/* Music Evolution - Final Clean CSS (2025)     */
+/* 배포용 완전 정리 버전                           */
+/* ============================================= */
 
-body {
-  font-family: 'Noto Sans', sans-serif;
+* { 
+  font-family: "Times New Roman", serif !important; 
+  letter-spacing: 0.4px; 
+  box-sizing: border-box;
 }
 
-.footer .icon-link {
-  font-size: 25px;
-  color: #000;
+html, body {
+  margin: 0; padding: 0;
+  background: #16203b !important;
+  color: #e8e8e8 !important;
+  background-image: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.65)),
+                    url('../images/BG.png') !important;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  line-height: 1.8;
+  scroll-behavior: smooth;
 }
 
-.link-block a {
-  margin-top: 5px;
-  margin-bottom: 5px;
+p, li, figcaption {
+  font-size: 1.08rem !important;
+  line-height: 1.52 !important;
+}
+figcaption {
+  font-size: 0.92rem !important;
+  color: #cccccc !important;
+  font-style: italic;
+  margin-top: 12.8px !important;
 }
 
-.dnerf {
-  font-variant: small-caps;
-}
+.title { color: #ffffff !important; text-shadow: 0 0 12px rgba(255,255,255,0.7); }
+h1.title { font-size: 3.04rem; margin-bottom: 0.4rem; }
+h2.title.is-3 { font-size: 1.92rem; margin-bottom: 1.2rem; }
 
-.teaser .hero-body {
-  padding-top: 0;
-  padding-bottom: 3rem;
+/* 다이아몬드 구분선 (당신 디자인 핵심!) */
+.divider {
+  position: relative; width: 100%; text-align: center; margin: 4rem 0;
 }
-
-.teaser {
-  font-family: 'Google Sans', sans-serif;
+.divider .diamond {
+  font-size: 2.24rem; color: #ffffff;
+  text-shadow: 0 0 12px rgba(255,255,255,0.4), 0 0 30px rgba(255,255,255,0.2);
 }
-
-.publication-title,
-.publication-authors {
-  font-family: 'Google Sans', sans-serif;
+.divider:before,
+.divider:after {
+  content: ""; position: absolute; top: 50%; width: 42%; height: 1.2px;
+  background: linear-gradient(to right, transparent, #6d89ff80);
 }
+.divider:before { left: 0; }
+.divider:after { right: 0; background: linear-gradient(to left, transparent, #6d89ff80); }
 
-.publication-venue {
-  color: #555;
-  width: fit-content;
-  font-weight: bold;
-}
-
-.publication-awards {
-  color: #ff3860;
-  width: fit-content;
-  font-weight: bolder;
-}
-
-.publication-video {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%;
-  overflow: hidden;
-  border-radius: 10px !important;
-}
-
-.publication-video iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.results-carousel {
-  overflow: hidden;
-}
-
-.results-carousel .item {
-  margin: 5px;
-  overflow: hidden;
-  border: 1px solid #bbb;
-  border-radius: 10px;
-  padding: 0;
-  font-size: 0;
-}
-
-.img-small75 {
-  width: 75%;
+/* 이미지 기본 스타일 */
+figure img {
+  border-radius: 12.8px;
+  padding: 8px;
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 9.6px 32px rgba(0,0,0,0.6);
+  transition: transform 0.35s ease;
+  width: 70%;
   height: auto;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+}
+figure img:hover { transform: scale(1.3); }
+
+/* 가운데 정렬 핵심 */
+.image-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+}
+.image-wrapper figcaption,
+.image-wrapper + p {
+  width: 88% !important;
+  max-width: 680px !important;
+  margin: 16px auto 0 !important;
+  text-align: center !important;
 }
 
-.section {
-  padding-top: 1rem;
+/* 목차 (TOC) 카드 */
+.toc-list { display: flex; flex-direction: column; gap: 1.2rem; }
+.toc-item {
+  position: relative; padding: 1.2rem 1.8rem;
+  background: rgba(22,32,59,0.65);
+  border: 1.5px solid rgba(109,137,255,0.25);
+  border-radius: 16px; color: #e8f0ff !important;
+  font-size: 1.18rem; text-align: left; overflow: hidden;
+  transition: all 0.45s cubic-bezier(0.4,0,0.2,1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 20px rgba(109,137,255,0.08);
 }
-
-.section h2.title {
-  margin-top: 0;
+.toc-item::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(109,137,255,0.15), rgba(128,191,255,0.05));
+  opacity: 0; transition: opacity 0.45s; border-radius: 16px;
 }
-
-.footer.footer-compact { padding: 0.75rem 1rem; }
-.footer.footer-compact .content { margin: 0; }
-.footer.footer-compact .content p { margin: 0.25rem 0; line-height: 1.3; }
-.footer.footer-compact .content p:last-child { margin-bottom: 0; }
-
-figcaption {
-  margin-bottom: 0.75rem;
+.toc-item:hover {
+  transform: translateY(-6px) scale(1.025);
+  border-color: #80bfff; background: rgba(30,42,77,0.85);
+  color: #fff !important;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 30px rgba(109,137,255,0.4),
+              inset 0 0 20px rgba(128,191,255,0.15);
+  z-index: 10;
 }
+.toc-item:hover::before { opacity: 1; }
+.toc-number { color: #80bfff; font-weight: bold; margin-right: 1rem; }
 
-/* 다이아몬드 구분선 (네 배경색 기준) */
-.divider {
-  width: 100%;
-  text-align: center;
-  border-bottom: 1px solid #aaa;
-  line-height: 0.1em;
-  margin: 30px 0;
-}
-
-.divider .diamond {
-  background: #16203B;
-  padding: 0 10px;
-  color: #ccc;
-  font-size: 18px;
-}
-
-/* 두 칼럼 이미지 사이 간격 줄이기 */
+/* 두 개 나란히 있을 때 */
 .columns.is-multiline .column.is-half {
-  padding-left: 0.5rem !important;
-  padding-right: 0.5rem !important;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 0.5rem !important;
+}
+.columns.is-multiline .image-wrapper figure img {
+  width: 75% !important; max-width: 560px !important;
+}
+.columns.is-multiline .column.is-half figure img:hover {
+  transform: scale(1.45) !important; z-index: 30 !important;
 }
 
-/* hover로 커질 때 잘 보이게 */
-.columns.is-multiline .column.is-half .image-wrapper {
-  overflow: visible !important;
-  position: relative !important;
-  z-index: 1;
+/* 컨테이너 & 푸터 */
+.container { max-width: 960px !important; margin: 0 auto !important; padding: 0 1.5rem; }
+.footer {
+  background: #0d1325 !important; color: #b0b0b0 !important;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 3.2rem 1.2rem; margin-top: 4.8rem; font-size: 0.88rem;
 }
 
-/* --------------------------- */
-/*  Desktop hover behavior     */
-/*  (마우스 있는 환경 전용)    */
-/* --------------------------- */
-
-@media (hover: hover) and (pointer: fine) {
-  /* 한 줄에 두 장 있는(is-half) 애들만 hover 확대 더 크게 */
-  .columns.is-multiline .column.is-half figure img:hover {
-    transform: scale(1.5) !important;
-    z-index: 50 !important;
-  }
-
-  .columns.is-multiline .column.is-half .image-wrapper:hover {
-    z-index: 50 !important;
-    position: relative;
-  }
+/* 페이드 인 */
+.fade-element { opacity: 0; transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.25,0.8,0.25,1), transform 0.9s cubic-bezier(0.25,0.8,0.25,1);
 }
+.fade-element.visible { opacity: 1; transform: translateY(0); }
+.image-wrapper.fade-element { transition-delay: 0.15s; }
 
-/* 터치 디바이스에서는 hover 효과 제거 */
-@media (hover: none) and (pointer: coarse) {
-  figure img:hover {
-    transform: none !important;
-  }
-}
-
-/* --------------------------- */
-/*   모바일 공통 레이아웃 FIX  */
-/* --------------------------- */
-
+/* 모바일 */
 @media screen and (max-width: 768px) {
-
-  /* 컨테이너를 진짜 화면 전체 쓰게 */
-  .container {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-
-  /* 줄 간격 조금 타이트하게 */
-  p, li {
-    line-height: 1.35 !important;
-  }
-
-  /* 이미지 래퍼 구조 단순화 */
-  .image-wrapper {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  /* figure도 풀사이즈 */
-  figure {
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  /* 이미지 진짜 100% 꽉 채우기 */
-  figure img {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    padding: 0 !important;  /* 패딩 있으면 실제 표시 폭이 줄어듦 */
-  }
-
-  /* 캡션/바로 뒤 문단도 같은 폭으로 */
-  figcaption,
-  .image-wrapper + p {
-    width: 100% !important;
-    max-width: 100% !important;
-    text-align: center !important;
-    padding: 0 1rem !important;
-  }
-
-  /* 두 칼럼 구조일 때도 좌우 여백 최소화 */
-  .columns.is-multiline .column.is-half {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
+  .columns.is-multiline { flex-direction: column !important; }
+  .columns.is-multiline .column.is-half { width: 100% !important; padding: 0.75rem !important; }
+  figure img { width: 100% !important; padding: 0 !important; background: none !important; box-shadow: none !important; }
+  .image-wrapper figcaption,
+  .image-wrapper + p { width: 94% !important; }
 }
 
-/* --------------------------- */
-/*   모바일 클릭 확대 스타일   */
-/* --------------------------- */
-
-.img-expanded {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1) !important;
-  width: 90% !important;
-  max-width: 90% !important;
-  height: auto !important;
-  z-index: 9999;
-  border-radius: 12px;
-  box-shadow: 0 0 40px rgba(0,0,0,0.7);
-}
-
-/* 배경 전체 어둡게 */
+/* 모바일 클릭 확대 */
 .img-expanded-bg {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.8);
-  z-index: 9998;
+  position: fixed; inset: 0; background: rgba(0,0,0,0.92);
+  z-index: 9998; backdrop-filter: blur(10px);
 }
+.img-expanded {
+  position: fixed !important; top: 50% !important; left: 50% !important;
+  transform: translate(-50%, -50%) scale(1.8) !important;
+  max-width: 95vw !important; max-height: 95vh !important;
+  z-index: 9999 !important; border-radius: 16px !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8) !important;
+}
+
+a { color: #80bfff; transition: 0.3s; }
+a:hover { color: #d0e8ff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
