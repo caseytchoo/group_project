@@ -251,3 +251,53 @@ figcaption {
     width: 100% !important;
     max-width: 100% !important;
   }
+
+
+  /* 📱 모바일 강제 풀사이즈 Fix — 이미지, 캡션, container 전부 */
+@media screen and (max-width: 768px) {
+
+  /* container 폭 제한 제거 */
+  .container {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* image-wrapper 구조 재설정 (flex → block) */
+  .image-wrapper {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* figure도 전체 폭 사용 */
+  figure {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+
+  /* img 최우선 우선순위 100% 적용 */
+  figure img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    padding: 0 !important;          /* 모바일에서 padding 제거(폭 좁아짐 방지) */
+  }
+
+  /* 캡션도 이미지와 같은 폭으로 */
+  figcaption {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 0 1rem !important;
+  }
+
+  /* 줄 간격도 모바일에 맞춰 자연스럽게 축소 */
+  p, li {
+    line-height: 1.35 !important;
+  }
+}
+
