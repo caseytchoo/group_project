@@ -137,180 +137,118 @@
     }
     .subtitle.is-4 { font-size: 1.28rem !important; }
     .is-size-5 { font-size: 1.2rem !important; }
-<style>
-  .toc-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-  .toc-item {
-    position: relative;
-    display: block;
-    padding: 1.2rem 1.8rem;
-    background: rgba(22, 32, 59, 0.65);
-    border: 1.5px solid rgba(109, 137, 255, 0.25);
-    border-radius: 16px;
-    color: #e8f0ff !important;
-    font-size: 1.18rem;
-    text-align: left;
-    overflow: hidden;
-    transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.4),
-      0 0 20px rgba(109, 137, 255, 0.08);
-  }
+    /* ========== 목차 (TOC) - 최종 예쁜 버전 ========== */
+    .toc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .toc-item {
+      position: relative;
+      display: block;
+      padding: 1.2rem 1.8rem;
+      background: rgba(22, 32, 59, 0.65);
+      border: 1.5px solid rgba(109, 137, 255, 0.25);
+      border-radius: 16px;
+      color: #e8f0ff !important;
+      font-size: 1.18rem;
+      text-align: left;
+      overflow: hidden;
+      transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(109, 137, 255, 0.08);
+    }
+    .toc-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, rgba(109, 137, 255, 0.15) 0%, rgba(128, 191, 255, 0.05) 100%);
+      opacity: 0;
+      transition: opacity 0.45s ease;
+      border-radius: 16px;
+      pointer-events: none;
+    }
+    .toc-item:hover {
+      transform: translateY(-6px) scale(1.025);
+      border-color: #80bfff;
+      background: rgba(30, 42, 77, 0.85);
+      color: #ffffff !important;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(109, 137, 255, 0.4),
+                  inset 0 0 20px rgba(128, 191, 255, 0.15);
+      z-index: 10;
+    }
+    .toc-item:hover::before { opacity: 1; }
+    .toc-item:hover .toc-number {
+      color: #c0d8ff;
+      text-shadow: 0 0 12px rgba(128, 191, 255, 0.8);
+    }
+    .toc-number {
+      color: #80bfff;
+      font-weight: bold;
+      margin-right: 1rem;
+      opacity: 0.95;
+      transition: all 0.4s ease;
+    }
 
-  /* Subtle inner glow background on hover */
-  .toc-item::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(135deg, 
-      rgba(109, 137, 255, 0.15) 0%, 
-      rgba(128, 191, 255, 0.05) 100%);
-    opacity: 0;
-    transition: opacity 0.45s ease;
-    border-radius: 16px;
-    pointer-events: none;
-  }
+    /* ========== 두 이미지 나란히 놓을 때 스타일 ========== */
+    .columns.is-multiline .column.is-half {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-left: 0.5rem !important;
+      padding-right: 0.5rem !important;
+    }
+    .columns.is-multiline .image-wrapper figure img {
+      width: 75% !important;
+      max-width: 560px !important;
+    }
+    .columns.is-multiline .image-wrapper figcaption,
+    .columns.is-multiline .image-wrapper + p {
+      width: 75% !important;
+      max-width: 560px !important;
+      text-align: center !important;
+    }
+    .columns.is-multiline .column.is-half .image-wrapper {
+      overflow: visible !important;
+      z-index: 2;
+    }
+    .columns.is-multiline .column.is-half figure img:hover {
+      transform: scale(1.45) !important;
+      z-index: 30 !important;
+    }
 
-  .toc-item:hover {
-    transform: translateY(-6px) scale(1.025);
-    border-color: #80bfff;
-    background: rgba(30, 42, 77, 0.85);
-    color: #ffffff !important;
-    box-shadow: 
-      0 20px 40px rgba(0, 0, 0, 0.5),
-      0 0 30px rgba(109, 137, 255, 0.4),
-      inset 0 0 20px rgba(128, 191, 255, 0.15);
-    z-index: 10;
-  }
-
-  .toc-item:hover::before {
-    opacity: 1;
-  }
-
-  .toc-item:hover .toc-number {
-    color: #c0d8ff;
-    text-shadow: 0 0 12px rgba(128, 191, 255, 0.8);
-  }
-
-  .toc-number {
-    color: #80bfff;
-    font-weight: bold;
-    margin-right: 1rem;
-    opacity: 0.95;
-    transition: all 0.4s ease;
-  }
-
-  .toc-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.1rem;
-  }
-  .toc-item {
-    display: block;
-    padding: 1rem 1.6rem;
-    background: #16203b;
-    border: 1.5px solid rgba(109, 137, 255, 0.3);
-    border-radius: 14px;                 /* fully rounded corners */
-    color: #e0e7ff !important;
-    font-size: 1.15rem;
-    text-align: left;
-    transition: all 0.38s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    backdrop-filter: blur(4px);
-  }
-  .toc-item:hover {
-    background: rgba(30, 42, 77, 0.7);
-    border-color: #80bfff;
-    transform: translateY(-4px);
-    color: #ffffff !important;
-    box-shadow: 0 12px 30px rgba(109, 137, 255, 0.25);
-    text-shadow: 0 0 10px rgba(128, 191, 255, 0.5);
-  }
-  .toc-number {
-    color: #80bfff;
-    font-weight: bold;
-    margin-right: 0.9rem;
-    opacity: 0.95;
-  }
-html {
-  scroll-behavior: smooth;
-}
-<style>
-  /* Make side-by-side images bigger and properly centered */
-  .columns.is-multiline .column.is-half {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* For the two-column sections only: make images use almost the full column width */
-  .columns.is-multiline .image-wrapper figure img {
-    width: 75% !important;        /* was 60% → now much larger */
-    max-width: 560px !important;  /* optional: prevent them from getting huge on very wide screens */
-  }
-
-  /* Keep captions and the paragraph after the image the same width as the image */
-  .columns.is-multiline .image-wrapper figcaption,
-  .columns.is-multiline .image-wrapper + p {
-    width: 75% !important;
-    max-width: 560px !important;
-    text-align: center !important;
-  }
-/* Base styles for fade animation */
-.fade-element {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.9s cubic-bezier(0.25, 0.8, 0.25, 1),
-              transform 0.9s cubic-bezier(0.25, 0.8, 0.25, 1);
-  will-change: opacity, transform;
-}
-
-.fade-element.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.fade-element.hidden {
-  opacity: 0;
-  transform: translateY(40px);
-}
-
-/* Slightly different timing for images so they feel staggered */
-.image-wrapper.fade-element {
-  transition-delay: 0.15s;
-}
-
-/* Optional: make dividers fade in more dramatically */
-.divider.fade-element {
-  transition-duration: 1.2s;
-}
-
-/* 1) 두 이미지 사이 간격 줄이기 (데스크탑용) */
-.columns.is-multiline .column.is-half {
-  padding-left: 0.5rem !important;
-  padding-right: 0.5rem !important;
-}
-
-/* 2) Hover 확대 시 잘리던 문제 해결 */
-.columns.is-multiline .column.is-half .image-wrapper {
-  overflow: visible !important;
-  position: relative !important;
-  z-index: 2;
-}
-
-/* 3) Hover 시 실제로 더 크게 보이도록 */
-.columns.is-multiline .column.is-half figure img:hover {
-  transform: scale(1.45) !important;  
-  z-index: 30 !important;
-}
-</style>
+    html { scroll-behavior: smooth; }
+    .fade-element {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s cubic-bezier(0.25, 0.8, 0.25, 1),
+                  transform 0.9s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .fade-element.visible { opacity: 1; transform: translateY(0); }
+    .image-wrapper.fade-element { transition-delay: 0.15s; }
+    .divider.fade-element { transition-duration: 1.2s; }
+    .img-expanded-bg {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.92);
+      z-index: 9998;
+      backdrop-filter: blur(10px);
+    }
+    .img-expanded {
+      position: fixed !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) scale(1.8) !important;
+      max-width: 95vw !important;
+      max-height: 95vh !important;
+      width: auto !important;
+      z-index: 9999 !important;
+      border-radius: 16px !important;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8) !important;
+    }
+  </style>  
     
-  </style>
 </head>
 <body>
   <section class="section">
@@ -323,9 +261,8 @@ html {
     </div>
   </section>
 
-  <div class="divider"><span class="diamond">◆</span></div>
+<div class="divider"><span class="diamond">◆</span></div>
 
-  
 <section class="section">
   <div class="container">
     <div class="content">
@@ -362,7 +299,6 @@ html {
 
 <div class="divider"><span class="diamond">◆</span></div>
   
- <section class="section">
 <section class="section" id="genre-trends">
   <div class="container">
     <div class="content">
@@ -417,7 +353,7 @@ html {
     </div>
   </section>
 
-  <div class="divider"><span class="diamond">◆</span></div>
+<div class="divider"><span class="diamond">◆</span></div>
 
 <section class="section" id="loudness">
   <div class="container">
