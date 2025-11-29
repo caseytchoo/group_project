@@ -198,3 +198,33 @@ figcaption {
   color: #ccc; /* 다이아몬드 색 */
   font-size: 18px;
 }
+
+@media screen and (max-width: 768px) {
+  figure img {
+    width: 100% !important;       /* 모바일에서는 전체 너비 사용 */
+    max-width: 100% !important;
+  }
+
+  .image-wrapper figcaption,
+  .image-wrapper + p {
+    width: 100% !important;       /* 캡션과 문단도 따라오게 */
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+
+  /* 두 개의 열짜리 레이아웃도 예쁘게 정렬 */
+  .columns.is-multiline .column.is-half {
+    padding: 0 0.5rem !important;
+  }
+
+  .columns.is-multiline .image-wrapper figure img {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .columns.is-multiline .image-wrapper figcaption,
+  .columns.is-multiline .image-wrapper + p {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
