@@ -213,7 +213,7 @@ figcaption {
 /* ------------------------------------------- */
 
 .columns.is-multiline .column.is-half figure img:hover {
-  transform: scale(1.25) !important;   /* 기본: 1.4 → 조금 줄여서 안정적으로 */
+  transform: scale(1.5) !important;   /* 기본: 1.4 → 조금 줄여서 안정적으로 */
   z-index: 50 !important;
 }
 
