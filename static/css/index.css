@@ -116,6 +116,17 @@ figcaption {
   font-size: 18px;
 }
 
+/* Desktop — Reduce gap between two-column images */
+.columns.is-multiline .column.is-half {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+}
+
+.columns.is-multiline .column.is-half .image-wrapper {
+  overflow: visible !important;
+  position: relative !important;
+  z-index: 1;
+}
 
 /* --------------------------- */
 /*      MOBILE FIX BLOCK       */
