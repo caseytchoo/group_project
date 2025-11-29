@@ -101,6 +101,7 @@ figcaption {
   margin-bottom: 0.75rem;
 }
 
+/* 다이아몬드 구분선 (네 배경색 기준) */
 .divider {
   width: 100%;
   text-align: center;
@@ -116,12 +117,13 @@ figcaption {
   font-size: 18px;
 }
 
-/* Desktop — Reduce gap between two-column images */
+/* 두 칼럼 이미지 사이 간격 줄이기 */
 .columns.is-multiline .column.is-half {
   padding-left: 0.5rem !important;
   padding-right: 0.5rem !important;
 }
 
+/* hover로 커질 때 잘 보이게 */
 .columns.is-multiline .column.is-half .image-wrapper {
   overflow: visible !important;
   position: relative !important;
@@ -129,25 +131,50 @@ figcaption {
 }
 
 /* --------------------------- */
-/*      MOBILE FIX BLOCK       */
-/*  (Everything unified here)  */
+/*  Desktop hover behavior     */
+/*  (마우스 있는 환경 전용)    */
+/* --------------------------- */
+
+@media (hover: hover) and (pointer: fine) {
+  /* 한 줄에 두 장 있는(is-half) 애들만 hover 확대 더 크게 */
+  .columns.is-multiline .column.is-half figure img:hover {
+    transform: scale(1.5) !important;
+    z-index: 50 !important;
+  }
+
+  .columns.is-multiline .column.is-half .image-wrapper:hover {
+    z-index: 50 !important;
+    position: relative;
+  }
+}
+
+/* 터치 디바이스에서는 hover 효과 제거 */
+@media (hover: none) and (pointer: coarse) {
+  figure img:hover {
+    transform: none !important;
+  }
+}
+
+/* --------------------------- */
+/*   모바일 공통 레이아웃 FIX  */
 /* --------------------------- */
 
 @media screen and (max-width: 768px) {
 
-  /* 1) container full-width on mobile */
+  /* 컨테이너를 진짜 화면 전체 쓰게 */
   .container {
+    width: 100% !important;
     max-width: 100% !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
 
-  /* 2) Reduce line-height for better readability */
+  /* 줄 간격 조금 타이트하게 */
   p, li {
     line-height: 1.35 !important;
   }
 
-  /* 3) Remove flex constraints (MAIN FIX) */
+  /* 이미지 래퍼 구조 단순화 */
   .image-wrapper {
     display: block !important;
     width: 100% !important;
@@ -156,41 +183,41 @@ figcaption {
     margin: 0 !important;
   }
 
-  /* 4) Make figure full width */
+  /* figure도 풀사이즈 */
   figure {
     width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
   }
 
-  /* 5) Make images full width (true fix) */
+  /* 이미지 진짜 100% 꽉 채우기 */
   figure img {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
-    padding: 0 !important;
+    padding: 0 !important;  /* 패딩 있으면 실제 표시 폭이 줄어듦 */
   }
 
-  /* 6) Make caption full width */
-  figcaption {
+  /* 캡션/바로 뒤 문단도 같은 폭으로 */
+  figcaption,
+  .image-wrapper + p {
     width: 100% !important;
+    max-width: 100% !important;
     text-align: center !important;
     padding: 0 1rem !important;
   }
 
-  /* 7) Two-column layout fix */
+  /* 두 칼럼 구조일 때도 좌우 여백 최소화 */
   .columns.is-multiline .column.is-half {
-    padding: 0 0.5rem !important;
-  }
-
-  .columns.is-multiline .image-wrapper figure img,
-  .columns.is-multiline .image-wrapper figcaption {
-    width: 100% !important;
-    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 
-/* 확대된 이미지 스타일 */
+/* --------------------------- */
+/*   모바일 클릭 확대 스타일   */
+/* --------------------------- */
+
 .img-expanded {
   position: fixed;
   top: 50%;
@@ -210,26 +237,4 @@ figcaption {
   top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(0,0,0,0.8);
   z-index: 9998;
-}
-
-@media (hover: none) and (pointer: coarse) {
-  figure img:hover {
-    transform: none !important;
-  }
-}
-
-
-/* ------------------------------------------- */
-/* 2-Column Layout (is-half) Hover Enlargement */
-/* ------------------------------------------- */
-
-.columns.is-multiline .column.is-half figure img:hover {
-  transform: scale(1.5) !important;   /* 기본: 1.4 → 조금 줄여서 안정적으로 */
-  z-index: 50 !important;
-}
-
-/* Hover 시 주변 요소 가리지 않게 wrapper도 z-index 상승 */
-.columns.is-multiline .column.is-half .image-wrapper:hover {
-  z-index: 50 !important;
-  position: relative;
 }
