@@ -325,6 +325,16 @@ a:hover {
     align-items: center;
   }
 
+/* 제목 전체폭 중앙정렬 fix */
+.title-section {
+  max-width: 100% !important;
+}
+
+.title-section .title {
+  max-width: 100% !important;
+  text-align: center !important;
+}
+
   .contact-card {
     width: 92%;
   }
