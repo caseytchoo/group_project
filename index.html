@@ -52,13 +52,42 @@
 
    
     figure img {
-      border-radius: 12.8px;
-      padding: 8px;
-      background: rgba(255,255,255,0.07);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 9.6px 32px rgba(0,0,0,0.6);
-      transition: transform 0.35s ease;
-    }
+  border-radius: 12.8px;
+  padding: 8px;
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 9.6px 32px rgba(0,0,0,0.6);
+  transition: transform 0.35s ease;
+  width: 60%;  /* 데스크탑에서는 60% 유지 */
+  height: auto;
+}
+    /* Mobile image fix — overrides desktop */
+@media screen and (max-width: 768px) {
+  figure img {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+  }
+
+  .image-wrapper,
+  figure,
+  figcaption,
+  .image-wrapper + p {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+}
     figure img:hover { transform: scale(1.4); }
 
     /* NEW: Center caption & following paragraph exactly under the image */
