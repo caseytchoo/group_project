@@ -312,5 +312,5 @@ footer.footer p {
 }
 
 .contact-card {
-  text-align: center;
+  text-align: center !important;
 }
