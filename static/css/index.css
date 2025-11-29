@@ -311,6 +311,12 @@ footer.footer p {
   text-align: center !important;
 }
 
-.contact-card {
+/* CONTACT 카드 안 텍스트 강제 중앙정렬 */
+.contact-card,
+.contact-card h3,
+.contact-card p,
+.contact-card a {
   text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
 }
